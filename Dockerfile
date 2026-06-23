@@ -7,4 +7,3 @@ COPY . .
 
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 RUN chown -R application:application /app/storage /app/bootstrap/cache
-ENTRYPOINT php artisan migrate --force && /entrypoint.sh
