@@ -1,4 +1,4 @@
-FROM webdevops/php-apache:8.2
+FROM webdevops/php-apache:8.3
 
 ENV WEB_DOCUMENT_ROOT=/app/public
 WORKDIR /app
