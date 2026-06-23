@@ -32,9 +32,7 @@ class Perizinan extends Model
         'token_gatepass',
     ];
 
-    /**
-     * Casts untuk kolom tanggal dan timestamp agar otomatis menjadi objek Carbon
-     */
+    
     protected $casts = [
         'tgl_jemput' => 'date',
         'tgl_kembali' => 'date',
@@ -43,41 +41,30 @@ class Perizinan extends Model
         'checked_in_at' => 'datetime',
     ];
 
-    /**
-     * Relasi ke model Santri yang mengajukan izin
-     */
+    
     public function santri(): BelongsTo
     {
         return $this->belongsTo(Santri::class, 'santri_id');
     }
 
-    /**
-     * Relasi ke model User (Wali/Pemohon izin)
-     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    /**
-     * Relasi ke User (Admin/Ustadz yang menyetujui)
-     */
+   
     public function approver(): BelongsTo
     {
         return $this->belongsTo(User::class, 'approved_by');
     }
 
-    /**
-     * Relasi ke User (Petugas yang mengecek saat santri keluar/out)
-     */
+    
     public function checkerOut(): BelongsTo
     {
         return $this->belongsTo(User::class, 'checked_out_by');
     }
 
-    /**
-     * Relasi ke User (Petugas yang mengecek saat santri kembali/in)
-     */
+    
     public function checkerIn(): BelongsTo
     {
         return $this->belongsTo(User::class, 'checked_in_by');
