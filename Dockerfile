@@ -7,4 +7,4 @@ COPY . .
 
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 RUN chown -R application:application /app/storage /app/bootstrap/cache
-CMD php artisan migrate --force && apache2-foreground
+ENTRYPOINT php artisan migrate --force && /entrypoint.sh
